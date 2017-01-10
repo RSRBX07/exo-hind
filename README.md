@@ -1,0 +1,2 @@
+# exo-hind
+exercices RUBY
