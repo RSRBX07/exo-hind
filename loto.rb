@@ -18,5 +18,7 @@ puts "La cagnote du gain est de : #{}"
 
 available_balls = (1.45).to_a
 #suffle balls and teke 5
+picked_balls = []
+(0.4).each do
 picked_balls = available_balls.shuffle.take5
 
