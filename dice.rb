@@ -15,5 +15,5 @@ def roll
 end
  roll
 
-
+puts "La valeur affichée du dé à 6 faces est : #{roll}"
 
