@@ -8,6 +8,12 @@ faces = [1, 2, 3, 4, 5, 6]
 
 roll = faces[rand 6]
 puts roll
+# ecrire une méthode roll qui va retourner la valeur d'un dé à 6 faces
+def roll
+    faces = [1, 2, 3, 4, 5, 6]
+    roll = faces[rand 6]
+end
+ roll
 
 
 
