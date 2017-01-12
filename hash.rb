@@ -12,8 +12,8 @@ departements = {
     59 => 'Nord',
     14 => 'Calvados',
     11 => 'Aude',
-    75 => 'Paris',
+    75 => 'Paris'
 }
 puts "insérer le numéro d'un departement'"
 numero = gets.to_i
-puts "le #{numero} est le departement #{departements[numero]}"
+puts "le #{numero} est le departement #{departements[numero]}"if {departements}
