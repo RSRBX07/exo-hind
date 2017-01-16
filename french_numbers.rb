@@ -34,3 +34,4 @@ end
 (0..19).each {|n| puts num_to_string n}
 puts num_to_string 20
 
+puts num_to_string "hind"
