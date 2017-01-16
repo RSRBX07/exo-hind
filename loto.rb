@@ -7,7 +7,7 @@ class Loto
       begin  
         input = gets.to_i
         puts("nombre déjà utilisé !!!") if grid.include? input
-      end while grid.include? input # je reboucle si input existe déjà dans grid
+      end while grid.include? input # je reboucle si input existe déjà dans grid 
       grid << input
     end
     grid
