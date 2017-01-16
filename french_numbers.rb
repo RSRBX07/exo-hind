@@ -6,8 +6,9 @@ et qui retourne la chaine de carractere du chiffre ecrit en toutes lettres
 
 
 
+class Fixnumber
 
-def french_numbers index
+def self.french_numbers index
       tableau = ["zero", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"] 
       tableau [index]
 end 
@@ -16,7 +17,7 @@ index = gets.chomp.to_i
 puts french_numbers index 
 
 
-def num_to_string number
+def self.num_to_string number
     if number.class == Fixnum # fixnum est une classe de ruby , ici ma condition est : est ce que mon argument number est une classe de type fixnum, si oui je continue
         case number # ici mon switch case se base sur une valeur number
         when 0..16  # de 0 à 16 je rentre ds ce cas
@@ -30,8 +31,9 @@ def num_to_string number
    
     end
 end
+end
 
-(0..19).each {|n| puts num_to_string n}
-puts num_to_string 20
+# (0..19).each {|n| puts num_to_string n}
+# puts num_to_string 20
 
-puts num_to_string "hind"
+# puts num_to_string "hind"

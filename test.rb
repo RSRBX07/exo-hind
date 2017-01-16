@@ -11,22 +11,37 @@
 
 # test de loto
 
+  
 require './loto.rb'
-
-loto_du_samedi = Loto.new
-2.times {loto_du_samedi.validate_grid Loto.get_flash}
-
-#.each { |grid| loto_du_samedi.check_grid grid }
-
-loto_du_lundi = Loto.new
-2.times {
-  loto_du_lundi.validate_grid Loto.get_grid
+require './french_numbers.rb'
+fixnumber = Fixnumber.new
+fixnumber.french_numbers 2
+fixnumber.num_to_string 10
 
 
-  #loto_du_lundi.check_grid(grid)
-  if loto_du_lundi.has_winner?
-    puts "Someone win"
-  else
-    puts "nobody win"
-  end
-}
+
+
+
+
+
+
+
+# loto_du_samedi = Loto.new
+# 2.times {loto_du_samedi.validate_grid Loto.get_flash}
+
+# #.each { |grid| loto_du_samedi.check_grid grid }
+
+# loto_du_lundi = Loto.new
+# 2.times {
+#   loto_du_lundi.validate_grid Loto.get_grid
+
+
+#   #loto_du_lundi.check_grid(grid)
+#   if loto_du_lundi.has_winner?
+#     puts "Someone win"
+#   else
+#     puts "nobody win"
+#   end
+# }
+
+
