@@ -15,13 +15,16 @@ class Loto
     (1..45).to_a.shuffle.take 5
   end
 
-  def has_winner?
+  def has_winner? # on définit une méthode d'instance de classe 
     #comprer tous les bulletins valides avec la grille gagnante
     sorted_draw = draw.sort
     @saved_grids.each do |grid|
       sorted_grid = grid.sort
-      sorted_grid == sorted_draw
+      ifreturne true if sorted_grid== sorted_draw
+      end
+      #sorted_grid == sorted_draw
     end
+    returne false
   end
 
   # enregistre une grille
