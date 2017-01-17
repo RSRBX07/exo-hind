@@ -16,7 +16,7 @@ class Loto
   def self.get_flash
     (1..45).to_a.shuffle.take 5
   end
-
+  
   def has_winner?
     #comprer tous les bulletins valides avec la grille gagnante
     sorted_draw = draw.sort
@@ -44,23 +44,12 @@ class Loto
   # affichage du montant de la cagnote
   # entre 100 et 500.000 Euros
   # le vendredi 13, la cagnote est de 2 millions
+
   def vendredi_13?
     Date.today.day == 13 && Date.today.friday?
   end
 
-  
-
-  def prize
-    cagnote = if vendredi_13?
-        2_000_000
-      else
-        100_000
-      end
-    puts "Le montant de la cagnote du jour est de #{cagnote}"
-    cagnote
-  end
-
-  def draw
+   def draw
     available_balls = (1..45).to_a
     # shuffle balls and take 5
     # @picked_balls ||= available_balls.shuffle.take(5)
@@ -73,10 +62,25 @@ class Loto
   def check_grid grid
     # afficher si gagne ou perdu
     if grid.sort == draw.sort
-      puts "You win !"
+      puts "You win #{prize}!"
     else
       puts "You loose !"
     end
   end
   
+
+
+  
+private
+  def prize
+    cagnote = if vendredi_13?
+        2_000_000
+      else
+        100_000
+      end
+    puts "Le montant de la cagnote du jour est de #{cagnote}"
+    cagnote
+  end
+
+ 
 end
