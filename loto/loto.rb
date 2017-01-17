@@ -6,24 +6,29 @@ class Loto
   attr_writer :saved_grids
   
 
-  def self.get_player_grid
-    puts "Saisissez votre grille nombre par nombre en appyant sur entree entre chaque"
-    grid = []
-    5.times do
-      begin  
-        input = gets.to_i
-        puts("nombre déjà utilisé !!!") if grid.include? input
-      end while grid.include? input # je reboucle si input existe déjà dans grid 
-      grid << input
-      puts "merci"
-    end
-    grid
+  def self.get_player_grid # cette methode me retourne un tableau contenant les 5 chiffres choisis aléatoirement par le joueur
+      puts "Saisissez votre grille nombre par nombre en appyant sur entree entre chaque"
+      grid = []
+      5.times do
+        begin  
+          input = gets.to_i
+          puts("nombre déjà utilisé !!!") if grid.include? input
+        end while grid.include? input # je reboucle si input existe déjà dans grid 
+        grid << input # grid.push(input) sucre syntaxique!!!
+        puts "merci"
+      end
+      grid
   end
 
-  def self.get_flash
+  def self.get_flash # cette methode me retourne un tableau contenant les 5 chiffres choisis aléatoirement pour le jeu
     (1..45).to_a.shuffle.take 5
   end
-  
+
+  def initialize # cette methode va initialiser la variable d'instance@picked_balls pour chaque objet crée par la methode .new 
+    puts "on initialise une instance de loto"
+    @picked_balls = []
+  end
+
   def has_winner?
     #comprer tous les bulletins valides avec la grille gagnante
     # if !@picked_balls
@@ -47,8 +52,7 @@ class Loto
         puts "Votre grille est bien enregistree pour le prochain tirage!"
     else
         puts "tirage déja fait, reviens demain !!!"
-    end
-    
+    en
   end 
   # demander une grille de jeu
 
@@ -86,14 +90,12 @@ class Loto
   private
 
   def prize
-    cagnote = if vendredi_13?
-        2_000_000
-      else
-        100_000
-      end
-    puts "Le montant de la cagnote du jour est de #{cagnote}"
-    cagnote
+      cagnote = if vendredi_13?
+          2_000_000
+        else
+          100_000
+        end
+      puts "Le montant de la cagnote du jour est de #{cagnote}"
+      cagnote 
   end
-
- 
 end
