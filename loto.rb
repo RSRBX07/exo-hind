@@ -1,7 +1,13 @@
 require 'date'
 class Loto
+  attr_reader :picked_balls # c'est une méthode qui retourne la variable d'instance picked_balls
+  attr_reader :saved_grids
+  attr_writer :picked_balls # c'est une methode qui me permet de modifier le tirage : la variable picked_balls
+  attr_writer :saved_grids
+  
 
-  def self.get_grid
+  def self.get_player_grid
+    puts "Saisissez votre grille nombre par nombre en appyant sur entree entre chaque"
     grid = []
     5.times do
       begin  
@@ -9,6 +15,7 @@ class Loto
         puts("nombre déjà utilisé !!!") if grid.include? input
       end while grid.include? input # je reboucle si input existe déjà dans grid 
       grid << input
+      puts "merci"
     end
     grid
   end
@@ -19,8 +26,11 @@ class Loto
   
   def has_winner?
     #comprer tous les bulletins valides avec la grille gagnante
-    sorted_draw = draw.sort
-    @saved_grids.each do |grid|
+    # if !@picked_balls
+    #   puts "Le tirage +"
+    # end
+    sorted_draw = @picked_balls.to_a.sort
+    @saved_grids.to_a.each do |grid|
       sorted_grid = grid.sort
       return true if sorted_grid == sorted_draw
     end
@@ -32,8 +42,9 @@ class Loto
   def validate_grid grid
     # @saved_grids ||= []
     @saved_grids = @saved_grids || []
-    if  ! @picked_balls 
+    if  ! draw 
         @saved_grids.push grid
+        puts "Votre grille est bien enregistree pour le prochain tirage!"
     else
         puts "tirage déja fait, reviens demain !!!"
     end
@@ -50,6 +61,7 @@ class Loto
   end
 
    def draw
+     puts "attention mesdames et messieurs nous allons proceder au tirage"
     available_balls = (1..45).to_a
     # shuffle balls and take 5
     # @picked_balls ||= available_balls.shuffle.take(5)
@@ -71,7 +83,8 @@ class Loto
 
 
   
-private
+  private
+
   def prize
     cagnote = if vendredi_13?
         2_000_000
