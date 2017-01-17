@@ -13,10 +13,26 @@
 
   
 require './loto.rb'
-require './french_numbers.rb'
-fixnumber = Fixnumber.new
-fixnumber.french_numbers 2
-fixnumber.num_to_string 10
+# require './french_numbers.rb'
+# fixnumber = Fixnumber.new
+# fixnumber.french_numbers 2
+# fixnumber.num_to_string 10
+
+loto_du_jour = Loto.new
+
+puts "Avant le tirage, le tirage est #{loto_du_jour.picked_balls.inspect}"
+ma_grille =  Loto.get_player_grid
+loto_du_jour.validate_grid ma_grille
+p loto_du_jour.has_winner?
+# loto_du_jour.picked_balls = [1,2,3,4,5] # grace au : attr_writer
+# p loto_du_jour.has_winner?
+# loto_du_jour.validate_grid  [1,2,3,4,5]
+p loto_du_jour.has_winner?
+puts " le tirage est #{loto_du_jour.picked_balls.inspect}"
+#loto_du_jour.prize
+
+
+
 
 
 
