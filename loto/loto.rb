@@ -6,7 +6,7 @@ class Loto
   attr_writer :saved_grids
   
 
-  def self.get_player_grid # cette methode me retourne un tableau contenant les 5 chiffres choisis aléatoirement par le joueur
+  def self.get_grid # cette methode me retourne un tableau contenant les 5 chiffres choisis aléatoirement par le joueur
       puts "Saisissez votre grille nombre par nombre en appyant sur entree entre chaque"
       grid = []
       5.times do
@@ -20,9 +20,11 @@ class Loto
       grid
   end
 
-  def self.get_flash # cette methode me retourne un tableau contenant les 5 chiffres choisis aléatoirement pour le jeu
-    (1..45).to_a.shuffle.take 5
-  end
+   def self.get_flash # cette methode me retourne un tableau contenant les 5 chiffres choisis aléatoirement pour le jeu
+   (1..45).to_a.shuffle.take 5
+  #:toto
+ # [0,0,0,0,0]
+   end
 
   def initialize # cette methode va initialiser la variable d'instance@picked_balls pour chaque objet crée par la methode .new 
     puts "on initialise une instance de loto"
@@ -52,7 +54,7 @@ class Loto
         puts "Votre grille est bien enregistree pour le prochain tirage!"
     else
         puts "tirage déja fait, reviens demain !!!"
-    en
+    end
   end 
   # demander une grille de jeu
 
@@ -64,15 +66,16 @@ class Loto
     Date.today.day == 13 && Date.today.friday?
   end
 
-   def draw
-     puts "attention mesdames et messieurs nous allons proceder au tirage"
+    def draw
+      puts "attention mesdames et messieurs nous allons proceder au tirage"
     available_balls = (1..45).to_a
-    # shuffle balls and take 5
-    # @picked_balls ||= available_balls.shuffle.take(5)
-    @picked_balls = @picked_balls || (available_balls.shuffle.take 5)
+     # shuffle balls and take 5
+     # @picked_balls ||= available_balls.shuffle.take(5)
+   #  @picked_balls = @picked_balls || (available_balls.shuffle.take 5)
+    @picked_balls = (available_balls.shuffle.take 5)
 
-    puts "Le tirage du jour est : #{@picked_balls.sort}" 
-    @picked_balls
+     puts "Le tirage du jour est : #{@picked_balls.sort}" 
+     @picked_balls
   end
 
   def check_grid grid

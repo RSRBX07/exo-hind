@@ -1,63 +1,35 @@
-# test de dice.rb
-# require './dice.rb'
-
-# my_dice = Dice.new
-
-# puts "lancer de de normal"
-# puts my_dice.roll
-
-# puts "lancer de de pipe"
-# puts my_dice.roll 4
-
-# test de loto
 
   
-require './loto.rb'
-# require './french_numbers.rb'
-# fixnumber = Fixnumber.new
-# fixnumber.french_numbers 2
-# fixnumber.num_to_string 10
+require './loto/loto.rb'
+RSpec.describe Loto do 
+ xit 'gets grids' do
+   Loto.get_grid
+ end
+it 'give a radom flash grid' do
+  expect(Loto.get_flash).not_to be_nil
+  expect(Loto.get_flash).to be_an Array
+  expect(Loto.get_flash).to equal 5
+  expect(Loto.get_flash).not_to eql Loto.get_flash
+end
 
-loto_du_jour = Loto.new
-
-puts "Avant le tirage, le tirage est #{loto_du_jour.picked_balls.inspect}"
-ma_grille =  Loto.get_player_grid
-loto_du_jour.validate_grid ma_grille
-p loto_du_jour.has_winner?
-# loto_du_jour.picked_balls = [1,2,3,4,5] # grace au : attr_writer
-# p loto_du_jour.has_winner?
-# loto_du_jour.validate_grid  [1,2,3,4,5]
-p loto_du_jour.has_winner?
-puts " le tirage est #{loto_du_jour.picked_balls.inspect}"
-#loto_du_jour.prize
-
-
-
-
-
-
-
-
-
-
-
-
-# loto_du_samedi = Loto.new
-# 2.times {loto_du_samedi.validate_grid Loto.get_flash}
-
-# #.each { |grid| loto_du_samedi.check_grid grid }
-
-# loto_du_lundi = Loto.new
-# 2.times {
-#   loto_du_lundi.validate_grid Loto.get_grid
+it'make a draw' do 
+  # loto=Loto.new
+  # loto_draw=loto.draw
+  # expect(loto).to respond_to : draw
+  # expect(Loto.loto_draw).not_to be_nil
+  # expect(Loto.loto_draw).to be_an Array
+  # expect(Loto.loto_draw).to equal 5
+  # expect(Loto.loto_draw).not_to eql Loto.loto.draw
+ # expect{loto.draw}.not_to raise_error # raise est une methode de ruby pour lever un erreur
+end
+it 'validate a grid register this grid' do
+loto=Loto.new
+grid =[1,2,3,4,5]
+loto.validate_grid grid
+validate_grid = loto.validate_grid grid
+expect(validated_grids).to include grid
 
 
-#   #loto_du_lundi.check_grid(grid)
-#   if loto_du_lundi.has_winner?
-#     puts "Someone win"
-#   else
-#     puts "nobody win"
-#   end
-# }
+end
 
-
+ end
