@@ -1,9 +1,15 @@
 class Game < ApplicationRecord
   def add_player
-    @players +=1
+    @players += 1
   end
 
- 
+  def remove_player
+    if @players = 0 
+      puts "Il n'ya pas de joueur"
+    else
+      @players -= 1
+    end
+  end
 
   private
 
