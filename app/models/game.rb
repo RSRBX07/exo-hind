@@ -14,9 +14,9 @@ class Game < ApplicationRecord
     # end
   end
 
-  def players
-    @players ||= 0 # ça remplace ma methode initialize, et je peux dc utiliser ma variable @players
-  end  
+  # def players
+  #   @players ||= 0 # ça remplace ma methode initialize, et je peux dc utiliser ma variable @players
+  # end  
 
   # def initialize 
   #   @players = 0
