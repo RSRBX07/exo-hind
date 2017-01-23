@@ -4,8 +4,8 @@ class Game < ApplicationRecord
   end
 
   def remove_player
-    if @players = 0 
-      puts "Il n'ya pas de joueur"
+    if @players == 0 
+      "Il n'ya pas de joueur"
     else
       @players -= 1
     end
