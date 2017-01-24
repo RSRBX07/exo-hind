@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :games
+  resources :games
   get 'say/hello'
 
   get 'say/goodbye'
